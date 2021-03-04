@@ -3,6 +3,7 @@
     "description": "Serie of tools based on traits that simplify the use of singletons, multitons and other class instances controllers.",
     "type": "library",
     "license": "MIT",
+    "keywords": ["singleton", "multiton", "singletons", "design patterns", "singleton pattern"],
     "authors": [
         {
             "name": "WP Helpers",
