@@ -1,0 +1,20 @@
+{
+    "name": "carloswph/tonton",
+    "description": "Serie of tools based on traits that simplify the use of singletons, multitons and other class instances controllers.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WP Helpers",
+            "email": "carlos@wp-helpers.com",
+            "homepage": "https://wp-helpers.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TonTon\\": "src/"
+        }
+    }
+}
