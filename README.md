@@ -95,7 +95,8 @@ class EasyPeasy {
    static method. Any new attempts of instantiating the class will
    work if using the static method instance(), with a $key as argument
    or a fatal error, if we try to create an instance through the "new"
-   keyword.*/
+   keyword. However, in the Limiton, the number of instances is limited
+   by the method setLimit(int).*/
 
 $ep = EasyPeasy::instance('normal'); // Instance 1
 $rt = EasyPeasy::instance('log'); // Nothing happens, as we limited the max number
