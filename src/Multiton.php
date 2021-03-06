@@ -27,23 +27,16 @@ trait Multiton {
     }
 
     /**
-     * Prevents calling the class using the new keyword, if the __construct is protected.
-     *
-     * @return void
-     */
-    private function __construct() {}
-
-    /**
      * Prevents cloning the multiton instances.
      *
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     /**
      * Prevents unserializing the multiton instances.
      *
      * @return void
      */
-    final private function __wakeup() {}
+    private function __wakeup() {}
 }

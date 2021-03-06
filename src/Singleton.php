@@ -17,32 +17,27 @@ trait Singleton {
      */
     final public static function instance()
     {
+
         if(!self::$instance) {
             
-            self::$instance = new self;    
+            self::$instance = new self;  
+
         }
         
         return self::$instance;
     }
 
     /**
-     * Prevents calling the class using the new keyword, if the __construct is protected.
-     *
-     * @return void
-     */
-    private function __construct() {}
-
-    /**
      * Prevents cloning the singleton instance.
      *
      * @return void
      */
-    final private function __clone() {}
+    private function __clone() {}
 
     /**
      * Prevents unserializing the singleton instance.
      *
      * @return void
      */
-    final private function __wakeup() {}
+    private function __wakeup() {}
 }
