@@ -1,6 +1,7 @@
 # TonTon PHP
 
 [![PHP Composer](https://github.com/carloswph/tonton/actions/workflows/php.yml/badge.svg)](https://github.com/carloswph/tonton/actions/workflows/php.yml)
+[![CI](https://github.com/carloswph/tonton/actions/workflows/main.yml/badge.svg)](https://github.com/carloswph/tonton/actions/workflows/main.yml)
 
 Singleton patterns are amongst the most used structures in PHP. Together with that, some similar constructions, such as the Multiton, appear in almost every new PHP project. However, singletons could be much more. Initially, they don't really need to be inserted in any class, several times. Some people use abstracts, but does it make sense, extending a class which is just a support, by definition?
 
