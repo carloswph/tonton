@@ -38,5 +38,5 @@ trait Multiton {
      *
      * @return void
      */
-    private function __wakeup() {}
+    public function __wakeup() {}
 }
