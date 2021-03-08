@@ -42,7 +42,7 @@ jobs:
       - name: PHP Syntax Checker (Lint)
         # You may pin to the exact commit or the version.
         # uses: StephaneBour/actions-php-lint@77bebd483cd74f9d60274942d907872ad679b951
-        uses: StephaneBour/actions-php-lint@8.0
+        uses: StephaneBour/actions-php-lint@7.4
         with:
           # Folder to check syntax
           dir: ./src
