@@ -38,3 +38,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: PHP Syntax Checker (Lint)
+        # You may pin to the exact commit or the version.
+        # uses: StephaneBour/actions-php-lint@77bebd483cd74f9d60274942d907872ad679b951
+        uses: StephaneBour/actions-php-lint@8.0
+        with:
+          # Folder to check syntax
+          dir: ./src
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
