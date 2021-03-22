@@ -12,7 +12,7 @@ trait Cacheton {
     /**
      * @var expiring time for caching
      */
-    protected $expires = 60;
+    protected static $expires = 3600;
 
     /**
      * @var expiring time for caching
@@ -26,8 +26,9 @@ trait Cacheton {
      *
      * @return self
      */
-    final public static function instance($key)
+    final public static function instance($key, $expire = null)
     {
+
 
         $cache = new \Memcached();
         $cache->addServer("localhost", 11211);
@@ -35,9 +36,16 @@ trait Cacheton {
         if(!array_key_exists($key, self::$instances)) {
 
             $isCached = $cache->get($key);
-            if(!$isCached) {            
-                self::$instances[$key] = new self;
-                $cache->set($key, self::$instances[$key], 30);
+            if(!$isCached) {
+
+                if(!is_null($expire)) {
+                    self::$instances[$key] = new self;
+                    $cache->set($key, self::$instances[$key], $expire);
+                } else {
+                    self::$instances[$key] = new self;
+                    $cache->set($key, self::$instances[$key], self::$expires);
+                }         
+
             } else {
                 self::$instances[$key] = new $isCached;
                 echo 'Cached';
@@ -45,14 +53,6 @@ trait Cacheton {
         }
         
         return self::$instances[$key];
-    }
-
-    public function getExpire() {
-        return $this->expires;
-    }
-
-    public function setExpire(int $seconds) {
-        $this->expires = $seconds;
     }
 
     /**

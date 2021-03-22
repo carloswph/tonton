@@ -109,3 +109,31 @@ $er = new EasyPeasy(); // Fatal error
 
 
 ```
+Another useful "ton". Let's say we want to work with different instances of a class. For some of them, we want the object to be cached, but not for others. Also, the expiring time is to be different from instance to instance. Now we can solve this problem with Cacheton. For the moment, this script require Memcached class - which means php-memcached extensions must be installed.
+
+```php
+
+require __DIR__ . '/vendor/autoload.php';
+
+class EasyPeasy {
+
+	use \TonTon\Cacheton;
+
+	protected function construct() {
+
+		echo 'Easy Peasy!';
+	}
+}
+
+/* The Cacheton works like a Multiton. Each new instance receives a tag.
+   If no time in seconds is passed, the trait assumes you want the instance
+   to be cached for one hour. However, this time can be set as a second
+   argument while calling the static method.*/
+
+$ep = EasyPeasy::instance('normal'); // Instantiate the class and sets a cache for 3600 seconds.
+$rt = EasyPeasy::instance('timed', 60); // Instantiate the class and sets a cache for 60 seconds
+
+$er = new EasyPeasy(); // Fatal error
+
+
+```
