@@ -137,3 +137,38 @@ $er = new EasyPeasy(); // Fatal error
 
 
 ```
+
+Ok, now let's try something more interesting. It's not rare at all to see situations in which devs use Singletons in tandem with some constraints checkings, in the same class. Starting with the obvious, what if we came up with a Singleton that JUST creates a single instance if requirements are met?
+
+That's exactly what we can do with the Selecton:
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+class EasyPeasy {
+
+	use \TonTon\Selecton;
+
+	private function __construct() {
+
+		echo 'Easy Peasy!';
+	}
+
+}
+
+$constraints = [
+	'extensions' => [ // Extension names
+		'curl',
+		'mbstring'
+	],
+	'classes' => [ // Class names (with namespaces, if existent)
+		'Directory',
+		'IteratorIterator'
+	]
+];
+
+$rt = EasyPeasy::instance($constraints); // If any of the constraints is not met, throws an exception
+
+$er = new EasyPeasy(); // Fatal error
+
+```

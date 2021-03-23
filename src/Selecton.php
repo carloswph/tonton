@@ -15,7 +15,7 @@ trait Selecton {
      *
      * @return self
      */
-    final public static function instance(array $constraints)
+    final public static function instance(array $constraints = null)
     {
 
         $extensions = get_loaded_extensions();
